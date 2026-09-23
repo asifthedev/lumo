@@ -82,33 +82,39 @@ function Result({ answers, onRetake }) {
           </p>
         </div>
 
-        <div className="flex mt-5 gap-1">
-          <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">
-            <span className="text-base font-bold text-accent">
-              {correctAnswers}
-            </span>
-            <span className="text-sm text-text-muted font-medium">Correct</span>
-          </div>{' '}
-          <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">
-            <span className="text-base font-bold text-accent">
-              {skippedAnswers}
-            </span>
-            <span className="text-sm text-text-muted font-medium">Skipped</span>
-          </div>{' '}
-          <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">
-            <span className="text-base font-bold text-accent">
-              {totalAnswers - (correctAnswers + skippedAnswers)}
-            </span>
-            <span className="text-sm text-text-muted font-medium">Wrong</span>
-          </div>
-        </div>
+        {/*<div className="flex mt-5 gap-1">*/}
+        {/*  <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">*/}
+        {/*    <span className="text-base font-bold text-accent">*/}
+        {/*      {correctAnswers}*/}
+        {/*    </span>*/}
+        {/*    <span className="text-sm text-text-muted font-medium">Correct</span>*/}
+        {/*  </div>{' '}*/}
+        {/*  <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">*/}
+        {/*    <span className="text-base font-bold text-accent">*/}
+        {/*      {skippedAnswers}*/}
+        {/*    </span>*/}
+        {/*    <span className="text-sm text-text-muted font-medium">Skipped</span>*/}
+        {/*  </div>{' '}*/}
+        {/*  <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">*/}
+        {/*    <span className="text-base font-bold text-accent">*/}
+        {/*      {totalAnswers - (correctAnswers + skippedAnswers)}*/}
+        {/*    </span>*/}
+        {/*    <span className="text-sm text-text-muted font-medium">Wrong</span>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
 
-        <div className="mt-5 w-full">
+        <div className="mt-5 w-full flex gap-1.5">
           <button
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-accent p-3 text-lg font-bold text-white transition hover:opacity-90 active:scale-[0.98]"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent p-3 text-sm font-medium text-white transition hover:opacity-90 active:scale-[0.98]"
             onClick={onRetake}
           >
             Retake Quiz
+          </button>
+          <button
+            className="flex w-full items-center justify-center gap-2 rounded-xl p-3 text-sm font-medium text-black border border-border transition hover:opacity-90 active:scale-[0.98]"
+            onClick={onRetake}
+          >
+            Show Results
           </button>
         </div>
       </div>
