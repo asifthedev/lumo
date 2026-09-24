@@ -7,8 +7,6 @@ export default function getQuizResult(userAnswers, questions) {
     return total + (answer === questions[questionIndex]?.answers[0] ? 1 : 0);
   }, 0);
 
-  const skippedAnswers = userAnswers.filter((answer) => answer === null).length;
-
   const percentCorrect = totalAnswers
     ? Math.round((correctAnswers / totalAnswers) * 100)
     : 0;
@@ -19,7 +17,6 @@ export default function getQuizResult(userAnswers, questions) {
 
   return {
     correctAnswers,
-    skippedAnswers,
     totalAnswers,
     percentCorrect,
     tier,

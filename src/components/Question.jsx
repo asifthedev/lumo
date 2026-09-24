@@ -24,11 +24,6 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
 
   let maxTime = QUIZ_TIMINGS.question;
 
-  if (answerState.selectedAnswer && answerState.isCorrect === null) {
-    maxTime = QUIZ_TIMINGS.answerPending;
-    timerColor = 'var(--color-warning)';
-  }
-
   if (answerState.selectedAnswer && answerState.isCorrect === true) {
     maxTime = QUIZ_TIMINGS.answerFeedback;
     timerColor = 'var(--color-success)';
@@ -44,22 +39,18 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
 
   // Show feedback before moving to the next question.
   function handleSelectAnswer(answer) {
-    setAnswerState({ selectedAnswer: answer, isCorrect: null });
+    setAnswerState({
+      selectedAnswer: answer,
+      isCorrect: answer === answers[0],
+    });
 
     setTimeout(() => {
+      onSelectAnswer(answer);
       setAnswerState({
-        selectedAnswer: answer,
-        isCorrect: answer === answers[0],
+        selectedAnswer: '',
+        isCorrect: null,
       });
-
-      setTimeout(() => {
-        onSelectAnswer(answer);
-        setAnswerState({
-          selectedAnswer: '',
-          isCorrect: null,
-        });
-      }, 3000);
-    }, 1000);
+    }, 4000);
   }
 
   return (
@@ -74,14 +65,11 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
 
       <div>
         {/* Time limit */}
-        <QuestionTimer
-          key={maxTime}
-          timeout={maxTime}
-          color={timerColor}
-          onTimerExpire={
-            answerState.selectedAnswer === '' ? onTimerExpire : null
-          }
-        />
+        <div className="w-full h-2 rounded-full bg-track mb-9 overflow-hidden">
+          {answerState.selectedAnswer && (
+            <QuestionTimer key={maxTime} timeout={maxTime} color={timerColor} />
+          )}
+        </div>
 
         <div className="flex items-start gap-2">
           <span className="flex h-5 w-4 shrink-0 items-center justify-center rounded-bl-sm rounded-br-lg rounded-tl-lg rounded-tr-sm bg-accent text-xs font-bold text-white">

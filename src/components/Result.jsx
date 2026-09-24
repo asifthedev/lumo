@@ -85,7 +85,7 @@ function Result({ answers, onRetake }) {
           </button>
           <Link
             to={'/summary'}
-            state={{ userAnswers: answers }}
+            state={{ userAnswers: answers, totalAnswers, correctAnswers }}
             className="flex w-full items-center justify-center gap-2 rounded-xl p-3 text-sm font-medium text-black border border-border transition hover:opacity-90 active:scale-[0.98]"
           >
             Show Results

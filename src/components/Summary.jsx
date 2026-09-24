@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router';
 import AnswerStatus from './AnswerStatus.jsx';
-function Summary({ userAnswers }) {
+
+function Summary() {
   const location = useLocation();
   const answers = location.state?.userAnswers;
-  const onRetake = location.state?.onRetake;
+  const totalAnswers = location.state?.totalAnswers;
+  const correctAnswers = location.state?.correctAnswers;
 
   console.log(answers);
 
@@ -18,7 +20,7 @@ function Summary({ userAnswers }) {
             </p>
           </section>
           <p className="rounded-full bg-indigo-500/5 px-3 py-1.5 text-sm font-bold text-accent">
-            2/7 correct
+            {correctAnswers}/{totalAnswers} correct
           </p>
         </div>
 

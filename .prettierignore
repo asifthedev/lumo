@@ -1,0 +1,6 @@
+# Ignore node modules and build folders
+node_modules/
+dist/
+
+# Ignore all JSON files from formatting entirely
+*.json
