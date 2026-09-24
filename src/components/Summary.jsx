@@ -1,95 +1,39 @@
-import { useEffect, useState } from 'react';
-import { RESULT_CIRCLE_RADIUS, RESULT_TIERS } from '../constants/quiz.js';
+import { Link, useLocation } from 'react-router';
+import AnswerStatus from './AnswerStatus.jsx';
+function Summary({ userAnswers }) {
+  const location = useLocation();
+  const answers = location.state?.userAnswers;
+  const onRetake = location.state?.onRetake;
 
-function Summary({ score, total, onRetake }) {
-  // Derive the score tier shown below the progress ring.
-  const percent = Math.round((score / total) * 100);
-
-  const tier =
-    RESULT_TIERS.find((resultTier) => percent / 100 >= resultTier.min) ??
-    RESULT_TIERS.at(-1);
-
-  const circumference = 2 * Math.PI * RESULT_CIRCLE_RADIUS;
-
-  const [offset, setOffset] = useState(circumference);
-
-  // Animate the progress ring from empty to the final score.
-  useEffect(() => {
-    const target = circumference - (circumference * percent) / 100;
-    const raf = requestAnimationFrame(() => setOffset(target));
-    return () => cancelAnimationFrame(raf);
-  }, [circumference, percent]);
+  console.log(answers);
 
   return (
-    <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full mx-auto">
-      {/* Summary header */}
-      <div className="mb-8 flex items-center gap-2">
-        <div className="w-7 h-7 rounded-lg bg-accent flex items-center justify-center text-white text-xs">
-          ✦
+    <main className="flex w-full flex-col items-center justify-center p-3 pt-16 pb-10">
+      <div className="quiz-container h-fit w-full max-w-lg rounded-3xl">
+        <div className={'flex justify-between items-center'}>
+          <section>
+            <h2 className={'font-bold text-2xl'}>Your Answers</h2>
+            <p className={'text-[13px] text-text-muted'}>
+              Question by question breakdown
+            </p>
+          </section>
+          <p className="rounded-full bg-indigo-500/5 px-3 py-1.5 text-sm font-bold text-accent">
+            2/7 correct
+          </p>
         </div>
-        <span className="font-bold">Lumo</span>
-        <span className="ml-auto text-xs font-semibold text-accent bg-accent-soft px-2.5 py-1 rounded-full">
-          Complete!
-        </span>
+
+        <AnswerStatus userAnswers={answers} />
+
+        <Link
+          to={'/'}
+          className={
+            'w-full flex justify-center items-center rounded-2xl bg-accent py-3.5 font-bold text-white transition hover:opacity-90 active:scale-[0.98] text-[15px] mt-5'
+          }
+        >
+          Retake Quiz
+        </Link>
       </div>
-
-      {/* Score and actions */}
-      <div className="flex flex-col items-center text-center">
-        <div className="relative w-36 h-36 mb-4">
-          <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-            <circle
-              cx="50"
-              cy="50"
-              r={RESULT_CIRCLE_RADIUS}
-              fill="none"
-              className="stroke-track"
-              strokeWidth="9"
-            />
-
-            <circle
-              cx="50"
-              cy="50"
-              r={RESULT_CIRCLE_RADIUS}
-              fill="none"
-              className="stroke-accent"
-              strokeWidth="9"
-              strokeLinecap="round"
-              strokeDasharray={circumference}
-              strokeDashoffset={offset}
-              style={{
-                transition: 'stroke-dashoffset 900ms cubic-bezier(.2,.9,.3,1)',
-              }}
-            />
-          </svg>
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-2xl font-extrabold">
-              {score}/{total}
-            </span>
-            <span className="text-xs text-text-muted font-semibold">
-              {percent}%
-            </span>
-          </div>
-        </div>
-
-        <div className="text-4xl mb-1">{tier.image}</div>
-        <h2 className="text-xl font-extrabold mb-1">{tier.title}</h2>
-        <p className="text-text-muted text-sm mb-6 max-w-[34ch]">
-          {tier.blurb}
-        </p>
-
-        <div className="flex gap-3 w-full">
-          <button
-            onClick={onRetake}
-            className="flex-1 bg-accent text-white font-bold rounded-xl py-3.5 hover:opacity-90 transition-opacity"
-          >
-            Retake Quiz
-          </button>
-          <button className="flex-1 border-[1.5px] border-border rounded-xl py-3.5 font-bold hover:border-accent transition-colors">
-            Share Result
-          </button>
-        </div>
-      </div>
-    </div>
+    </main>
   );
 }
 

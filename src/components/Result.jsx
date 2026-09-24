@@ -1,4 +1,3 @@
-import logo from '../assets/logo.svg';
 import getQuizResult from '../utils/getQuizResult.js';
 import { RESULT_CIRCLE_RADIUS } from '../constants/quiz.js';
 import { useEffect, useState } from 'react';
@@ -6,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { QUESTIONS_ENGLISH, QUESTIONS_URDU } from '../data/questions.js';
 import { use } from 'react';
 import { LanguageContext } from '../store/language-context.jsx';
+import { Link } from 'react-router';
 
 function Result({ answers, onRetake }) {
   const { language } = use(LanguageContext);
@@ -13,8 +13,10 @@ function Result({ answers, onRetake }) {
   const QUESTIONS = language === 'english' ? QUESTIONS_ENGLISH : QUESTIONS_URDU;
 
   // Convert the submitted answer IDs into display data for the result screen.
-  const { correctAnswers, totalAnswers, percentCorrect, tier, skippedAnswers } =
-    getQuizResult(answers, QUESTIONS);
+  const { correctAnswers, totalAnswers, percentCorrect, tier } = getQuizResult(
+    answers,
+    QUESTIONS,
+  );
 
   const radius = RESULT_CIRCLE_RADIUS;
   const circumference = 2 * Math.PI * radius;
@@ -30,14 +32,6 @@ function Result({ answers, onRetake }) {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center p-3">
       <div className="quiz-container h-fit w-full max-w-110 rounded-3xl border border-border bg-card p-8">
-        {/* Result header */}
-        {/* <div className="mb-7 flex items-center justify-between">
-          <img src={logo} alt="logo image" className="w-20" />
-          <p className="rounded-full bg-accent/10 px-2 py-1 text-xs font-bold text-accent">
-            Completed!
-          </p>
-        </div> */}
-
         <div className="relative h-36 w-full">
           <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
             <circle
@@ -77,31 +71,10 @@ function Result({ answers, onRetake }) {
         <div className="mt-4 flex flex-col items-center gap-0.5">
           <img src={tier.image} alt="" className="w-20" />
           <p className="text-[19px] font-bold">{tier.title}</p>
-          <p className="w-10/12 text-center text-sm text-text-muted">
+          <p className="w-10/12 text-center text-sm text-text-muted font-medium mt-0.5">
             {tier.blurb}
           </p>
         </div>
-
-        {/*<div className="flex mt-5 gap-1">*/}
-        {/*  <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">*/}
-        {/*    <span className="text-base font-bold text-accent">*/}
-        {/*      {correctAnswers}*/}
-        {/*    </span>*/}
-        {/*    <span className="text-sm text-text-muted font-medium">Correct</span>*/}
-        {/*  </div>{' '}*/}
-        {/*  <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">*/}
-        {/*    <span className="text-base font-bold text-accent">*/}
-        {/*      {skippedAnswers}*/}
-        {/*    </span>*/}
-        {/*    <span className="text-sm text-text-muted font-medium">Skipped</span>*/}
-        {/*  </div>{' '}*/}
-        {/*  <div className="flex flex-col bg-accent/10 px-3 py-2 justify-center items-center rounded-xl gap-0 w-1/3">*/}
-        {/*    <span className="text-base font-bold text-accent">*/}
-        {/*      {totalAnswers - (correctAnswers + skippedAnswers)}*/}
-        {/*    </span>*/}
-        {/*    <span className="text-sm text-text-muted font-medium">Wrong</span>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
 
         <div className="mt-5 w-full flex gap-1.5">
           <button
@@ -110,12 +83,13 @@ function Result({ answers, onRetake }) {
           >
             Retake Quiz
           </button>
-          <button
+          <Link
+            to={'/summary'}
+            state={{ userAnswers: answers }}
             className="flex w-full items-center justify-center gap-2 rounded-xl p-3 text-sm font-medium text-black border border-border transition hover:opacity-90 active:scale-[0.98]"
-            onClick={onRetake}
           >
             Show Results
-          </button>
+          </Link>
         </div>
       </div>
     </main>

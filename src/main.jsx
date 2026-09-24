@@ -6,10 +6,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import Quiz from './components/Quiz.jsx';
 import Language from './components/Language.jsx';
 import { LanguageContextProvider } from './store/language-context.jsx';
+import Result from './components/Result.jsx';
+import Summary from './components/Summary.jsx';
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
   { path: '/quiz', element: <Quiz /> },
   { path: '/language', element: <Language /> },
+  { path: '/summary', element: <Summary /> },
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>

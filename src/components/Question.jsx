@@ -61,7 +61,7 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
   }
 
   return (
-    <div className="h-fit w-full border border-border bg-card quiz-container max-w-2xl rounded-2xl p-5 sm:p-7 md:p-9">
+    <div className="h-fit` w-full border border-border bg-card quiz-container max-w-2xl rounded-2xl p-5 sm:p-7 md:p-9">
       {/* Quiz header */}
       <div className="flex items-center justify-between mb-7 flex-wrap gap-3">
         <img src={logo} alt="logo image" className="w-16 sm:w-20" />
