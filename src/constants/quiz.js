@@ -1,6 +1,6 @@
-import trophy from '../assets/trophy.svg';
-import medal from '../assets/medal.svg';
-import flower from '../assets/flower.svg';
+import trophy from '../assets/trophy.webp';
+import medal from '../assets/medal-svg.webp';
+import flower from '../assets/flower.webp';
 
 // Object.freeze() is used to make object immutable
 

@@ -1,5 +1,5 @@
-import logo from '../assets/logo.svg';
-import arrowRightIcon from '../assets/arrow-right.svg';
+import logo from '../assets/logo.webp';
+import arrowRightIcon from '../assets/arrow-right.webp';
 import { Link } from 'react-router';
 import { use } from 'react';
 import { LanguageContext } from '../store/language-context.jsx';

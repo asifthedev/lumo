@@ -4,7 +4,7 @@ import { QUESTIONS_ENGLISH, QUESTIONS_URDU } from '../data/questions.js';
 import { use } from 'react';
 import { LanguageContext } from '../store/language-context.jsx';
 import QuestionTimer from './QuestionTimer.jsx';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.webp';
 import { QUIZ_TIMINGS } from '../constants/quiz.js';
 
 function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {

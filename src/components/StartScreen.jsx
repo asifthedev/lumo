@@ -1,8 +1,8 @@
-import logo from '../assets/logo.svg';
-import girl from '../assets/girl.svg';
-import questionsIcon from '../assets/questions.svg';
-import clockIcon from '../assets/clock.svg';
-import arrowRightIcon from '../assets/arrow-right.svg';
+import logo from '../assets/logo.webp';
+import girl from '../assets/girl.webp';
+import questionsIcon from '../assets/questions.webp';
+import clockIcon from '../assets/clock.webp';
+import arrowRightIcon from '../assets/arrow-right.webp';
 import { QUESTIONS_URDU } from '../data/questions.js';
 import { Link } from 'react-router';
 
