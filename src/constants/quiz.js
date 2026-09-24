@@ -1,6 +1,4 @@
-import trophy from '../assets/trophy.webp';
-import medal from '../assets/medal-svg.webp';
-import flower from '../assets/flower.webp';
+import { CLOUDINARY_ASSETS } from './cloudinary.js';
 
 // Object.freeze() is used to make object immutable
 
@@ -13,19 +11,19 @@ export const QUIZ_TIMINGS = Object.freeze({
 export const RESULT_TIERS = Object.freeze([
   {
     min: 0.8,
-    image: trophy,
+    image: CLOUDINARY_ASSETS.trophy,
     title: 'Relationship Guru!',
     blurb: "You've got healthy relationships figured out.",
   },
   {
     min: 0.5,
-    image: medal,
+    image: CLOUDINARY_ASSETS.medal,
     title: 'Growing Strong',
     blurb: 'Good instincts - a little more practice and you are golden.',
   },
   {
     min: 0,
-    image: flower,
+    image: CLOUDINARY_ASSETS.flower,
     title: 'Room to Grow',
     blurb:
       "Every relationship is a learning curve. Here's a great place to start.",

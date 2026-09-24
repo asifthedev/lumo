@@ -1,10 +1,9 @@
-import logo from '../assets/logo.webp';
-import girl from '../assets/girl.webp';
-import questionsIcon from '../assets/questions.webp';
-import clockIcon from '../assets/clock.webp';
-import arrowRightIcon from '../assets/arrow-right.webp';
 import { QUESTIONS_URDU } from '../data/questions.js';
 import { Link } from 'react-router';
+import { CLOUDINARY_ASSETS } from '../constants/cloudinary.js';
+
+const { logo, girl, questions: questionsIcon, clock: clockIcon, arrowRight: arrowRightIcon } =
+  CLOUDINARY_ASSETS;
 
 function Start({ questionCount = QUESTIONS_URDU.length, duration = '2 min' }) {
   return (

@@ -1,8 +1,9 @@
-import logo from '../assets/logo.webp';
-import arrowRightIcon from '../assets/arrow-right.webp';
 import { Link } from 'react-router';
 import { use } from 'react';
 import { LanguageContext } from '../store/language-context.jsx';
+import { CLOUDINARY_ASSETS } from '../constants/cloudinary.js';
+
+const { logo, arrowRight: arrowRightIcon } = CLOUDINARY_ASSETS;
 
 function Language() {
   const { language, setLanguage } = use(LanguageContext);
