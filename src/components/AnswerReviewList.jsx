@@ -3,7 +3,7 @@ import { LanguageContext } from '../store/language-context.jsx';
 import { QUESTIONS_ENGLISH, QUESTIONS_URDU } from '../data/questions.js';
 import { CheckIcon, X } from 'lucide-react';
 
-function AnswerStatus({ userAnswers }) {
+function AnswerReviewList({ userAnswers }) {
   const { language } = use(LanguageContext);
   const QUESTIONS = language === 'english' ? QUESTIONS_ENGLISH : QUESTIONS_URDU;
 
@@ -94,4 +94,4 @@ function AnswerStatus({ userAnswers }) {
   );
 }
 
-export default AnswerStatus;
+export default AnswerReviewList;

@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react';
 
 import { QUESTIONS_URDU } from '../data/questions.js';
-import Question from './Question.jsx';
-import Result from './Result.jsx';
+import QuizQuestion from './QuizQuestion.jsx';
+import QuizResults from './QuizResults.jsx';
 
-function Quiz() {
+function QuizSession() {
   const [userAnswers, setUserAnswers] = useState([]);
 
   const activeQuestionIndex = userAnswers.length;
@@ -26,12 +26,12 @@ function Quiz() {
   }
 
   if (isQuizCompleted) {
-    return <Result answers={userAnswers} onRetake={onRetakeQuiz} />;
+    return <QuizResults answers={userAnswers} onRetake={onRetakeQuiz} />;
   }
 
   return (
     <main className="flex h-dvh w-full flex-col items-center justify-center p-2">
-      <Question
+      <QuizQuestion
         key={activeQuestionIndex}
         activeQuestionIndex={activeQuestionIndex}
         onSelectAnswer={handleSelectAnswer}
@@ -41,4 +41,4 @@ function Quiz() {
   );
 }
 
-export default Quiz;
+export default QuizSession;

@@ -7,7 +7,7 @@ import { use } from 'react';
 import { LanguageContext } from '../store/language-context.jsx';
 import { Link } from 'react-router';
 
-function Result({ answers, onRetake }) {
+function QuizResults({ answers, onRetake }) {
   const { language } = use(LanguageContext);
 
   const QUESTIONS = language === 'english' ? QUESTIONS_ENGLISH : QUESTIONS_URDU;
@@ -96,4 +96,4 @@ function Result({ answers, onRetake }) {
   );
 }
 
-export default Result;
+export default QuizResults;

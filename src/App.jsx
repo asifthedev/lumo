@@ -1,10 +1,10 @@
 import './App.css';
-import StartScreen from './components/StartScreen.jsx';
+import QuizLanding from './components/QuizLanding.jsx';
 
 function App() {
   return (
     <>
-      <StartScreen />
+      <QuizLanding />
     </>
   );
 }

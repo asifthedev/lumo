@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function QuestionTimer({ timeout, color }) {
+function AnswerFeedbackTimer({ timeout, color }) {
   const [scaleX, setScaleX] = useState(1);
 
   // Start the progress animation after the initial render.
@@ -22,4 +22,4 @@ function QuestionTimer({ timeout, color }) {
   );
 }
 
-export default QuestionTimer;
+export default AnswerFeedbackTimer;

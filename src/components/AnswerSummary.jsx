@@ -1,8 +1,8 @@
 import { Link, useLocation } from 'react-router';
-import AnswerStatus from './AnswerStatus.jsx';
+import AnswerReviewList from './AnswerReviewList.jsx';
 
 
-function Summary() {
+function AnswerSummary() {
   const location = useLocation();
   const answers = location.state?.userAnswers;
   const totalAnswers = location.state?.totalAnswers;
@@ -25,7 +25,7 @@ function Summary() {
           </p>
         </div>
 
-        <AnswerStatus userAnswers={answers} />
+        <AnswerReviewList userAnswers={answers} />
 
         <Link
           to={'/'}
@@ -40,4 +40,4 @@ function Summary() {
   );
 }
 
-export default Summary;
+export default AnswerSummary;

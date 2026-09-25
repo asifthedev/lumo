@@ -5,7 +5,7 @@ import { CLOUDINARY_ASSETS } from '../constants/cloudinary.js';
 
 const { logo, arrowRight: arrowRightIcon } = CLOUDINARY_ASSETS;
 
-function Language() {
+function LanguageSelection() {
   const { language, setLanguage } = use(LanguageContext);
 
   return (
@@ -23,7 +23,7 @@ function Language() {
           Chose a Language
         </h1>
         <p className="text-sm text-text-muted leading-relaxed mb-6 max-w-[32ch] mx-auto font-medium">
-          Zuban Ka Intekhab karain
+          Zuban ka intekhab karain
         </p>
 
         <div>
@@ -95,4 +95,4 @@ function Language() {
   );
 }
 
-export default Language;
+export default LanguageSelection;

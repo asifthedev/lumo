@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import Answer from './Answer.jsx';
+import AnswerOptions from './AnswerOptions.jsx';
 import { QUESTIONS_ENGLISH, QUESTIONS_URDU } from '../data/questions.js';
 import { use } from 'react';
 import { LanguageContext } from '../store/language-context.jsx';
-import QuestionTimer from './QuestionTimer.jsx';
-import { QUIZ_TIMINGS } from '../constants/quiz.js';
+import AnswerFeedbackTimer from './AnswerFeedbackTimer.jsx';
 import { CLOUDINARY_ASSETS } from '../constants/cloudinary.js';
 
 const { logo } = CLOUDINARY_ASSETS;
 
-function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
+function QuizQuestion({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
   const { language } = use(LanguageContext);
 
   const QUESTIONS = language === 'english' ? QUESTIONS_ENGLISH : QUESTIONS_URDU;
@@ -65,7 +64,7 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
         {/* Time limit */}
         <div className="w-full h-2 rounded-full bg-track mb-9 overflow-hidden">
           {answerState.selectedAnswer && (
-            <QuestionTimer key={maxTime} timeout={maxTime} color={timerColor} />
+            <AnswerFeedbackTimer key={maxTime} timeout={maxTime} color={timerColor} />
           )}
         </div>
 
@@ -79,7 +78,7 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
           </span>
         </div>
 
-        <Answer
+        <AnswerOptions
           answers={answers}
           handleSelectAnswer={handleSelectAnswer}
           answerState={answerState}
@@ -89,4 +88,4 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
   );
 }
 
-export default Question;
+export default QuizQuestion;

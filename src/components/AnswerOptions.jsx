@@ -5,7 +5,7 @@ function getLetter(index) {
   return String.fromCharCode(65 + index);
 }
 
-function Answer({ answers, answerState, handleSelectAnswer }) {
+function AnswerOptions({ answers, answerState, handleSelectAnswer }) {
   // Keep the answer order stable while the question is being displayed.
   const [shuffledAnswers] = useState(() => shuffleAnswers(answers));
 
@@ -52,4 +52,4 @@ function Answer({ answers, answerState, handleSelectAnswer }) {
   );
 }
 
-export default Answer;
+export default AnswerOptions;

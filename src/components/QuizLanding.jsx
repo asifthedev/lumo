@@ -5,7 +5,7 @@ import { CLOUDINARY_ASSETS } from '../constants/cloudinary.js';
 const { logo, girl, questions: questionsIcon, clock: clockIcon, arrowRight: arrowRightIcon } =
   CLOUDINARY_ASSETS;
 
-function Start({ questionCount = QUESTIONS_URDU.length, duration = '2 min' }) {
+function QuizLanding({ questionCount = QUESTIONS_URDU.length, duration = '2 min' }) {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center p-3">
       <div className="h-fit w-full border border-border bg-card relative mx-auto max-w-sm rounded-3xl p-8 text-center">
@@ -72,4 +72,4 @@ function Start({ questionCount = QUESTIONS_URDU.length, duration = '2 min' }) {
   );
 }
 
-export default Start;
+export default QuizLanding;
