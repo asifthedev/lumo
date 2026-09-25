@@ -1,16 +1,93 @@
-# lumo
+# Lumo
 
-A quiz web app to test your knowledge about relationship management.
+Lumo is a simple Quiz Web App about relationship.
 
-## Development
+## Demo
 
-This project uses React and Vite with HMR and Oxlint rules.
+- [Live Demo](https://lumo-asifthedev.vercel.app/)
+- [Video Demo](https://youtu.be/GD31iz_UsWE?si=GYFYXdVkHVyxVEol)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Features
 
-### Commands
+- Choose between English and Roman Urdu.
+- Answer relationship-focused questions at your own pace.
+- Get immediate visual feedback after selecting an answer.
+- View your total score and percentage at the end of the quiz.
+- Receive a relationship-awareness result based on your performance.
+- Review every question with the selected and correct answers.
+- Retake the quiz whenever you want to try for a better score.
+- Responsive layout for comfortable use across screen sizes.
+
+## User Flow
+
+1. Start the relationship quiz.
+2. Select English or Roman Urdu.
+3. Read each question and choose an answer.
+4. Review the feedback before continuing.
+5. See your final score and result.
+6. Explore the question-by-question answer breakdown.
+
+## Tech Stack
+
+- React
+- Vite
+- React Router
+- Tailwind CSS
+- Lucide React
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18 or later
+- npm
+
+### Installation
+
+Clone the repository, open the project directory, and install the dependencies:
 
 ```bash
 npm install
+```
+
+### Start the development server
+
+```bash
 npm run dev
 ```
+
+Open the local URL shown in the terminal to view the application.
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server. |
+| `npm run build` | Create a production build. |
+| `npm run preview` | Preview the production build locally. |
+| `npm run lint` | Check the project with Oxlint. |
+
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── AnswerFeedbackTimer.jsx
+│   ├── AnswerOptions.jsx
+│   ├── AnswerReviewList.jsx
+│   ├── AnswerSummary.jsx
+│   ├── LanguageSelection.jsx
+│   ├── QuizLanding.jsx
+│   ├── QuizQuestion.jsx
+│   ├── QuizResults.jsx
+│   └── QuizSession.jsx
+├── constants/
+├── data/
+├── store/
+├── utils/
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
