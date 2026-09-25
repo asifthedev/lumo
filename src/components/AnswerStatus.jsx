@@ -1,7 +1,7 @@
 import { use } from 'react';
 import { LanguageContext } from '../store/language-context.jsx';
 import { QUESTIONS_ENGLISH, QUESTIONS_URDU } from '../data/questions.js';
-import { CheckIcon, CircleCheck, X } from 'lucide-react';
+import { CheckIcon, X } from 'lucide-react';
 
 function AnswerStatus({ userAnswers }) {
   const { language } = use(LanguageContext);
@@ -37,7 +37,12 @@ function AnswerStatus({ userAnswers }) {
             <div className={'flex-1 flex flex-col gap-3'}>
               <h3 className={'flex justify-between font-semibold'}>
                 <span>{QUESTIONS[index].text}</span>
-                <CircleCheck color={'#15803d'} size={20} />
+                {answerStatus === 'correct' && (
+                  <CheckIcon color={'#15803d'} size={20} />
+                )}
+                {answerStatus === 'wrong' && (
+                  <X color={'#e7000b'} size={20} />
+                )}
               </h3>
 
               {/*Answer is wrong*/}
