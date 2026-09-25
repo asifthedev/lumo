@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router';
 import AnswerStatus from './AnswerStatus.jsx';
 
+
 function Summary() {
   const location = useLocation();
   const answers = location.state?.userAnswers;

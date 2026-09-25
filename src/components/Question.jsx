@@ -22,15 +22,13 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
     isCorrect: null,
   });
 
-  let maxTime = QUIZ_TIMINGS.question;
+  let maxTime = 2000;
 
   if (answerState.selectedAnswer && answerState.isCorrect === true) {
-    maxTime = QUIZ_TIMINGS.answerFeedback;
     timerColor = 'var(--color-success)';
   }
 
   if (answerState.selectedAnswer && answerState.isCorrect === false) {
-    maxTime = QUIZ_TIMINGS.answerFeedback;
     timerColor = 'var(--color-danger)';
   }
 
@@ -50,13 +48,13 @@ function Question({ activeQuestionIndex, onSelectAnswer, onTimerExpire }) {
         selectedAnswer: '',
         isCorrect: null,
       });
-    }, 4000);
+    }, maxTime);
   }
 
   return (
-    <div className="h-fit` w-full border border-border bg-card quiz-container max-w-2xl rounded-2xl p-5 sm:p-7 md:p-9">
+    <div className="h-fit` w-full border border-border bg-card quiz-container max-w-2xl rounded-2xl p-5 sm:p-7 md:p-9 ${}">
       {/* Quiz header */}
-      <div className="flex items-center justify-between mb-7 flex-wrap gap-3">
+      <div className={`flex items-center justify-between mb-7 flex-wrap gap-3`}>
         <img src={logo} alt="logo image" className="w-16 sm:w-20" />
         <p className="text-xs font-medium text-text-muted sm:text-sm">
           Questions {activeQuestionIndex + 1} of {QUESTIONS.length}
