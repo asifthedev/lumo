@@ -4,8 +4,8 @@ Lumo is a simple Quiz Web App about relationship.
 
 ## Demo
 
-- [Live Demo](https://lumo-asifthedev.vercel.app/)
-
+- [Try Here](https://lumo-asifthedev.vercel.app/)
+- [Watch Demo Video](https://www.youtube.com/watch?v=GD31iz_UsWE)
 [![Watch the Lumo video demo](https://img.youtube.com/vi/GD31iz_UsWE/maxresdefault.jpg)](https://www.youtube.com/watch?v=GD31iz_UsWE)
 
 Click the preview above to watch the video demo on YouTube.
